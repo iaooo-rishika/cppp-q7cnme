@@ -1,0 +1,29 @@
+.container {
+  display: block;
+  padding: 30px;
+}
+.heading, h1 {
+  font-family: Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+}
+.info {
+  color: rgb(64, 115, 195);
+}
+hr {
+width: auto;
+height: 2px;
+background-color:#888;
+opacity: 0.5;
+border: #eee;
+}
+.text-right {
+  right: 0px;
+}
+.text-left {
+  left: 0px;
+}
+.tile-content-left {
+  position: absolute;
+  left: 0px;
+}

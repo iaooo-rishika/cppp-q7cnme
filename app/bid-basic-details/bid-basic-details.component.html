@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="heading">
+    <h1>{{data.name}} <i class="material-icons info" matTooltip="Basic Details for Bid, which will help define the context of the bid creation.">info</i></h1>
+  </div>
+  <hr>
+  <div class="body">
+    <mat-grid-list cols="12">
+      <mat-grid-tile [colspan]="6">
+        <div class="tile-content-left">
+          <span>Ministry : </span><b> {{data.workable.ministry}}</b><br>
+          <span>Department : </span><b> {{data.workable.department}}</b>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="6">
+        <div class="tile-content-left">
+          <span>Buyer Name : </span><b> {{data.workable.buyer_name}}</b>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4">
+        <div class="tile-content-left">
+          Project Title: 
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="8">
+        <div class="tile-content-left">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="data.workable.project_title" matInput>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3">
+        <div class="tile-content-left">
+          Bid Classification :
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3">
+        <div class="tile-content-left">
+          <mat-form-field>
+            <select [(ngModel)]="data.workable.bid_classification" matNativeControl required>
+              <option *ngFor="let classification of data.workable.bid_classifications" [value]="classification">{{classification}}</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3">
+        <div class="tile-content-left">
+          Bid Type :
+        </div> 
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="3">
+        <div class="tile-content-left">
+          <mat-form-field>
+            <select [(ngModel)]="data.workable.bid_type" matNativeControl required>
+              <option *ngFor="let type of data.workable.bid_types" [value]="type">{{type}}</option>
+            </select>
+          </mat-form-field>  
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4">
+        <div class="tile-content-left">
+          Bid Duration (days) : 
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="8">
+        <div class="tile-content-left">
+          <mat-form-field>
+            <input type="number" [min]=1 [(ngModel)]="data.workable.duration" matInput>
+          </mat-form-field>  
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4">
+        <div class="tile-content-left">
+          Bid Value : 
+        </div>
+      </mat-grid-tile>
+      <mat-radio-group [(ngModel)]="data.workable.bid_value_type">
+        <mat-grid-tile [colspan]="4" *ngFor="let type of value_types">
+          <div class="tile-content-left">
+            <mat-radio-button [value]="type">
+            {{type}}
+            </mat-radio-button>
+          </div>
+        </mat-grid-tile>    
+      </mat-radio-group>
+      <mat-grid-tile [colspan]="4">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4" *ngIf="data.workable.bid_value_type">
+        <div class="tile-content-left">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="data.workable.bid_value_amount" disabled="{{data.workable.bid_value_type != 'absolute'}}" matInput>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4" *ngIf="data.workable.bid_value_type">
+        <div class="tile-content-left">
+          <mat-form-field>
+            <input type="text" [(ngModel)]="data.workable.bid_value_percentage" disabled="{{data.workable.bid_value_type == 'absolute'}}" matInput>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

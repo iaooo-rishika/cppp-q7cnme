@@ -1,0 +1,53 @@
+#wizard {
+  &> .mat-horizontal-stepper-header-container{
+    width: 300px;
+    background: #3367d6;
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    padding-top: 50px;
+
+    .mat-stepper-horizontal-line{
+        border-width: 0;
+        display:none;
+    }
+    
+    .mat-step-header{
+      overflow: visible;
+      
+
+      &:before, &:after{
+        display:none;
+      }
+      
+      .mat-step-icon-state-number{
+        display: block;
+      }
+      .mat-step-icon-state-number, .mat-step-icon{
+        position:absolute;
+        right: -10px;
+        margin-top: 13px;
+        width: 30px;
+        height: 30px;
+          background: #6666fa;
+        border: 2px solid #2524bd;
+      }
+
+      .mat-step-label{
+        color: #9797e4;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 0.6px;
+        &.mat-step-label-selected{
+          color: #eceafe;
+        }
+      }
+    }
+  }
+  &> .mat-horizontal-content-container {
+    padding-left: 300px;
+  }
+}
